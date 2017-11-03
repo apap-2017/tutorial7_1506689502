@@ -7,27 +7,28 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.model.StudentModel;
+import com.example.model.CourseModel;
+
 import com.example.service.StudentService;
 
 @RestController
 @RequestMapping("/rest")
-public class StudentRestController {
+
+public class CourseRestController {
 	
 	@Autowired
 	StudentService studentService;
 	
-	@RequestMapping("/student/view/{npm}")
-	public StudentModel view(@PathVariable(value = "npm") String npm) {
-		StudentModel student = studentService.selectStudent(npm);
-		return student;
+	@RequestMapping("/course/view/{id_course}")
+	public CourseModel view(@PathVariable(value = "id_course") String idCourse) {
+		CourseModel course = studentService.viewCourse(idCourse);
+		return course;
 	}
 	
-	@RequestMapping("/student/viewall")
-	public List<StudentModel> viewall(StudentModel model) {
-		List <StudentModel> student = studentService.selectAllStudents();
-		return student;
+	@RequestMapping("/course/viewall")
+	public List<CourseModel> viewall(CourseModel model) {
+		List <CourseModel> course = studentService.viewAllCourse();
+		return course;
 		
 	}
-
 }

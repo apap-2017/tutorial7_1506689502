@@ -23,4 +23,6 @@ public interface StudentService
     List<CourseModel> selectCourses(String idCourse);
     
     CourseModel viewCourse(String idCourse);
+    
+    List<CourseModel> viewAllCourse();
 }

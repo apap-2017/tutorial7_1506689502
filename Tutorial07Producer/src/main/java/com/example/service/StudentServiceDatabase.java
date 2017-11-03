@@ -71,4 +71,13 @@ public class StudentServiceDatabase implements StudentService
 	}
 
 
+	@Override
+	public List<CourseModel> viewAllCourse() {
+		// TODO Auto-generated method stub
+		return studentMapper.viewAllCourse();
+	}
+
+
+
+
 }

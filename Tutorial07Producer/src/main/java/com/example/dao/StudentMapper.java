@@ -72,4 +72,15 @@ public interface StudentMapper
     })
     CourseModel viewCourse (@Param("idCourse") String idCourse);
     
+    @Select("select * from course")
+    @Results(value = {
+    		@Result(property="idCourse", column="id_course"),
+    		@Result(property="name",column="name"),
+    		@Result(property="credits", column="credits"),
+    		@Result(property="students",column="id_course",
+			javaType = List.class,
+			many=@Many(select="joinCourse"))
+    })
+    List<CourseModel> viewAllCourse();
+    
 }
